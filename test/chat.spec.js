@@ -5,7 +5,7 @@ const { app } = require('../server');
 const { expect } = require('chai');
 
 const coldBrew = require('cold-brew');
-const { Key, By, Until } = require('selenium-webdriver');
+const { Key, By, until } = require('selenium-webdriver');
 
 describe('server', function () {
     it('should server html when a get request is made', function (done) {
@@ -56,5 +56,16 @@ describe('client-side messager application', function () {
 
     afterEach(function (done) {
         client.quit().then(() => done());
+    });
+});
+it('should post a message to your page(not send!)', function(){
+    this.timeout(2000);
+    client.get(ADDRESS);
+    client.do([['sendKeys','form input',{},'Hello World',Key.ENTER],]);
+    client.wait(until.elementLocated(By.css('p.message')));
+    client.findElementByAttributes('p.message',{innerText:'Hello World'}).then((found)=>{
+        if(found){
+            done();
+        }
     });
 });
