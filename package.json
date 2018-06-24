@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test-chat":"node ./node_modules/mocha/bin/mocha ./test/chat.spec.js",
-    "test-video":"node ./node_modules/mocha/bin/mocha test/video.spec.js",
-    "test":"node ./node_modules/mocha/bin/mocha test/*.spec.js",
+    "test-chat": "node ./node_modules/mocha/bin/mocha ./test/chat.spec.js",
+    "test-video": "node ./node_modules/mocha/bin/mocha test/video.spec.js",
+    "test": "node ./node_modules/mocha/bin/mocha test/*.spec.js",
     "start": "node server.js"
   },
   "keywords": [],
@@ -26,5 +26,8 @@
     "socket.io-client": "^2.1.1",
     "supertest": "^3.1.0",
     "webrtc-adapter": "^6.2.1"
+  },
+  "devDependencies": {
+    "chromedriver": "^2.40.0"
   }
 }
